@@ -1,8 +1,10 @@
-import { Router } from "express";
-import taskRoutes from "../../modules/tasks/task.routes";
+import { Router } from 'express';
+import categoryRoutes from '../../modules/categories/category.routes';
+import taskRoutes from '../../modules/tasks/task.routes';
 
 const router = Router();
 
-router.use('/task', taskRoutes);
+router.use('/tasks', taskRoutes);
+router.use('/categories', categoryRoutes);
 
 export default router;
