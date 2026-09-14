@@ -4,9 +4,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import compression from 'compression';
 
-// Importación de rutas de los módulos
+// Importación de rutas de tareas
 import taskRoutes from './modules/tasks/task.routes';
-import categoryRoutes from './modules/categories/category.routes';
 
 const app: Application = express();
 
@@ -17,13 +16,12 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(compression());
 
-// Ruta base de prueba (para verificar en el navegador o Postman)
+// Ruta base para verificar que responde la API
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ message: 'API de tareas activa y funcionando' });
 });
 
-// Registro formal de Endpoints
+// Registro de endpoints
 app.use('/api/v1/tasks', taskRoutes);
-app.use('/api/v1/categories', categoryRoutes);
 
 export default app;
